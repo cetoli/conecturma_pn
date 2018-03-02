@@ -3,7 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Bem Vindos à documentação da plataforma Conecturma
+#################################
+Plataforma Conecturma
+#################################
+
+Documentação de Desenvolvimento
 ==================================================
 
 Manual do desenvolvedor da plataforma Conecturma.
@@ -25,4 +29,3 @@ Indices e Tabelas
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

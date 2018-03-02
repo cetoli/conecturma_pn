@@ -16,10 +16,24 @@ Funcionalidades Documentadas:
 
     modules.rst
     controle_aluno.rst
+    controle_menu.rst
+    controle_login.rst
+
+
+Conecturma - Testes
+====================
+
+Funcionalidades Documentadas:
+
+.. toctree::
+    :maxdepth: 2
+
+    testes_web.rst
+    testes_facade.rst
 
 
 Conecturma - Lançamentos
-====================
+========================
 
 Realtórios de Lançamento:
 

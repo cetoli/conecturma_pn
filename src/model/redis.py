@@ -1,3 +1,5 @@
+from redislite.patch import patch_redis
+patch_redis('/tmp/walrus.db')
 from walrus import *
 from random import randrange
 
@@ -110,12 +112,9 @@ class DbAluno(Model):
         o desempenho do aluno no jogo ao qual ele esta jogando
 
         :param usuario: O jogador do jogo que esta nessa sessão de login
-        :param jogo: Qual o jogo que o jogador
-        decidiu jogar , se é j1 ou j2
+        :param jogo: Qual o jogo que o jogador decidiu jogar , se é j1 ou j2
         :param pontos: O acrescenta 1 a cada acerto
-        :param cliques: variavel auxiliar
-        para acrescentar +1 para o numero total de cliques em cada jogo , independentemente de o jogador ter errado
-        ou acertado no jogo
+        :param cliques: variavel auxiliar para acrescentar +1 para o numero total de cliques em cada jogo , independentemente de o jogador ter errado ou acertado no jogo
         :return: None
         """
         if pontos is None:
@@ -159,7 +158,7 @@ class DbAluno(Model):
         :return: None
         """
         res = DbTurma.load(turma_add)
-        turma_add= res.turma_nome
+        turma_add = res.turma_nome
         print(turma_add)
         for escolha in escolha:
             usuario = self.load(escolha)
@@ -290,7 +289,6 @@ class DbTurma(Model):
     def turma_in(self):
         pass
 
-
     def calcular_desempenho_jogos(self):
         soma = 0
         soma2 = 0
@@ -316,7 +314,8 @@ class DbLoja(Model):
 
     def create_item(self, nome, tipo, preco):
         """
-            Cria o item no banco de dados
+        Cria o item no banco de dados.
+
         :param nome:Nome do item
         :param tipo:Se ele é cor,rosto,acessório,corpo
         :param preco: é o preço do item
@@ -326,7 +325,8 @@ class DbLoja(Model):
 
     def Read_item(self):
         """
-            Leitura dos itens cadastrados na plataforma
+        Leitura dos itens cadastrados na plataforma.
+
         :return: Os itens cadastrados
         """
         itens = []

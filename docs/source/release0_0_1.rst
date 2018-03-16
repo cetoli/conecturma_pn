@@ -27,17 +27,17 @@ Incorpora documentação do desenvolvimento em Sphinx
 Aspecto #2
 **********
 
-Incorpora testes unitários ussando o módulo unittest
+Incorpora testes unitários usando o módulo unittest
 
 Aspecto #3
 **********
 
-Incorpora testes web no modo blackbox ussando o módulo webtes
+Incorpora testes web no modo blackbox usando o módulo webtest
 
 Melhoramentos
 =============
 
-Uso do Github e Waffle para coordenar o fluxo de desenvolvimento
+Uso do Github_ e Waffle_ para coordenar o fluxo de desenvolvimento
 
 Melhoramento #1
 ***************

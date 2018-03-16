@@ -33,5 +33,5 @@ Uso do módulo Walrus e do Armazenamento Documental Redis
 
 
 .. note::
-   O Walrus é uma biblioteca dea alto nível que interfaceia o Redis.
+   O Walrus é uma biblioteca de alto nível que interfaceia o Redis.
 

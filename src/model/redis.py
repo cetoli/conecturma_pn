@@ -283,6 +283,7 @@ class DbTurma(Model):
             return turma
 
     def calcular_desempenho_jogos(self):
+        pass
 
 
 

@@ -1,7 +1,7 @@
 .. _modulos_login:
 
 ####################################
-Conecturma - Módulos Login e Usuário
+Conecturma - Módulos Login e Loja
 ####################################
 
 Controle de Autenticação
@@ -25,19 +25,19 @@ Controle de Autenticação
 
 .. _modulos_usuario:
 
-Controle de Usuário
+Controle Acesso à Loja
 ==============================================
 
-.. automodule:: control.usuario_controller
+.. automodule:: control.loja_controller
     :members:
     :undoc-members:
     :show-inheritance:
     :platform: Web
-    :synopsis: Controle de Usuário.
+    :synopsis: Controle de Loja.
 
 
 .. note::
-   Operações CRUD do Usuário.
+   Operações CRUD da Loja.
 
 .. seealso::
     * :ref:`Controlador de Autenticação <modulos_login>`

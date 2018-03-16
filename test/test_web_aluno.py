@@ -6,7 +6,7 @@ sys.path.append('../')
 from index import application
 
 # os.environ['WEBTEST_TARGET_URL'] = 'http://localhost:8888'
-test_app = TestApp(application)
+test_app = TestApp(application, extra_environ=dict(REMOTE_USER='bob'))
 
 
 class BlackBoxTest(unittest.TestCase):
@@ -19,7 +19,9 @@ class BlackBoxTest(unittest.TestCase):
 
     def test_read_student(self):
         """ A página dos alunos deve permitir deletar aluno. """
+        test_app.set_cookie("login", '2524')
         res = test_app.get('/ler_aluno')
+
         self.assertEqual(res.status_int, 200)
         self.assertIn('<form action="/deletar_alunos">', res.text, res.text)
 

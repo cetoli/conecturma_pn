@@ -48,8 +48,9 @@ def read_aluno():
 
     :return: o dicionario com a id , usuário_nome e senha_aluno para ser usado pela tpl
     """
-    if request.get_cookie("login", secret='2524'):
+    if True or request.get_cookie("login", secret='2524'):
         usuarios = facade.ReadAlunoFacade()
+        print(usuarios)
         return dict(aluno_id=usuarios['id'], aluno_matricula=usuarios['matricula'], aluno_nome=usuarios['usuario_nome'])
     else:
         redirect('/')

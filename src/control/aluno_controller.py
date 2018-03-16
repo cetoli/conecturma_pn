@@ -1,4 +1,8 @@
-from bottle import route, view, get, request, redirect
+from bottle import *
+
+from model.redis import DbTurma
+
+"""route, view, get, request, redirect, post"""
 from facade.facade import Facade
 
 facade = Facade()
@@ -48,12 +52,27 @@ def read_aluno():
 
     :return: o dicionario com a id , usuário_nome e senha_aluno para ser usado pela tpl
     """
+
+    """pesquisa_aluno = request.params['']"""
+    """ return dict(aluno_pesquisado=pesquisa_aluno)"""
+
     if True or request.get_cookie("login", secret='2524'):
         usuarios = facade.ReadAlunoFacade()
-        print(usuarios)
-        return dict(aluno_id=usuarios['id'], aluno_matricula=usuarios['matricula'], aluno_nome=usuarios['usuario_nome'])
+        turma = facade.ReadTurmaFacade()
+        alunos = [(aluno['id'], aluno['usuario_nome'], aluno['matricula']) for aluno in usuarios]
+        return dict(aluno_id=alunos, turmas=turma)
     else:
         redirect('/')
+
+
+@get('/turma_aluno')
+def aluno_in_turma():
+    escolhidos = request.query_string
+    escolha = [aluno.split('=')[0].split('_')[1] for aluno in escolhidos.split('&') if 'aluno' in aluno]
+    turma_add = request.query.get('escolhidos')
+    print(escolhidos, escolha, turma_add)
+    facade.include_aluno_in_turma(escolha, turma_add)
+    redirect('/')
 
 
 """ Deletar aluno(usuario) """
@@ -62,12 +81,33 @@ def read_aluno():
 @get('/deletar_alunos')
 def deletar_aluno():
     """
-    Direciona a função DeleteAlunoFacade para a pagina tpl
+    Direciona a função deleteAlunoFacade para a pagina tpl
 
-    :return: Deleta a entrada de dicionario e retorna a pagina geral aluno
+    :return: Deleta a entrada de dicionario equivalente e retorna ao menu
     """
-    facade.DeleteAlunoFacade(request.params['id'])
-    redirect('/aluno')
+    escolhidos = request.query_string
+    deletar_ids = [aluno.split('=')[0].split('_')[1] for aluno in escolhidos.split('&') if 'aluno' in aluno]
+    print(escolhidos, deletar_ids)
+    facade.deleteAlunoFacade(deletar_ids)
+    redirect('/')
+
+
+@route('/turma_read')
+@view('turma/turma_read')
+def read_turma():
+    """
+    Direciona para a pagina que mostra a turma em ordem de id
+    :return: a entrada de dicionario que contem o id e o turma_nome
+    """
+    turma = facade.ReadTurmaFacade()
+    return dict(turma_id=turma['id'], turma_nome=turma['nome'], criador=turma['criador'])
+
+
+@get('/escolha_turma')
+def escolha_turma():
+    facade.IncludeAlunosFacade(request.params('turma_selecionada'))
+
+    redirect('/')
 
 
 """Ver medalhas"""

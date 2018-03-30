@@ -1,4 +1,4 @@
-from model.redis import DbUsuario, DbTurma, DbLoja
+from model.redis import DbAluno, DbTurma, DbLoja
 
 
 class Facade:
@@ -7,12 +7,14 @@ class Facade:
         """
         método para utilização do banco de dados
         """
-        self.aluno = DbUsuario()
+        self.aluno = DbAluno()
         self.turma = DbTurma()
         self.loja = DbLoja()
+
     """
         Inicio Facade Usuario/Aluno
     """
+
     def CreateAlunoFacade(self, nome, senha):
         """
         facade de criar aluno
@@ -29,14 +31,14 @@ class Facade:
         """
         return self.aluno.read_usuario()
 
-    def DeleteAlunoFacade(self, id):
+    def deleteAlunoFacade(self, deletar_ids):
         """
         facade de deletar o aluno , atravez da id
         futuramente atravez do nome ,por enquanto foi implementada atravez de botao
         :param id:
         :return: o metodo que deleta o aluno da base de dados
         """
-        self.aluno.aluno_delete(id)
+        self.aluno.aluno_delete(deletar_ids)
 
     def PesquisaAlunoFacade(self, nome):
         return self.aluno.pesquisa_usuario(nome)
@@ -44,8 +46,12 @@ class Facade:
     def PontoJogoFacade(self, usuario, jogo, ponto, clique):
         self.aluno.pontos_jogo(usuario, jogo, ponto, clique)
 
+    def include_aluno_in_turma(self, escolhidos, turma_add):
+        self.aluno.alunos_in_turma(escolhidos, turma_add)
+
+
     def CompraItemFacade(self, id_usuario, id_item):
-        self.aluno.comprar_item(id_usuario=id_usuario, id_item=id_item)
+            self.aluno.comprar_item(id_usuario=id_usuario, id_item=id_item)
 
     def VerItemCompradoFacade(self, id_usuario):
         return self.aluno.ver_itens_comprados(id_usuario)
@@ -100,11 +106,16 @@ class Facade:
 
     def VerItemLojaFacade(self):
         return self.loja.Read_item()
+
     def PesquisaItemFacade(self,id):
         return self.loja.pesquisar_item(id)
 
+    def deletar_item(self, id):
+        self.loja.item_delete(id)
+
     def JaTemItemFacade(self,usuario_logado):
         return self.loja.ja_possui_item(usuario_logado = usuario_logado)
+
     """
         Fim Facade loja
     """

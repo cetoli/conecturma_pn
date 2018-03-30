@@ -1,4 +1,4 @@
-from bottle import route, view, get, request
+from bottle import route, view, get, request , redirect
 from facade.facade import *
 
 facade = Facade()
@@ -56,7 +56,7 @@ def read_turma():
     """
     if request.get_cookie("login", secret='2524'):
         turma = facade.ReadTurmaFacade()
-        return dict(turma_id=turma['id'], turma_nome=turma['nome'], criador=turma['criador'])
+        return dict(turma = turma)
     else:
         redirect('/')
 

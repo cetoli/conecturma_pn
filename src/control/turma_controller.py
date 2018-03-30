@@ -1,4 +1,4 @@
-from bottle import route, view, get, request , redirect
+from bottle import route, view, get, request, redirect
 from facade.facade import *
 
 facade = Facade()
@@ -31,15 +31,15 @@ def cadastrar_turma():
         redirect('/')
 
 
-@get('/cadastro_turma')
+@route('/cadastro_turma', method='POST')
 def create_turma():
     """
     Pagina para chamar a funçao create_turma , pedindo pelo tpl o parametro turma_nome
     :return: cria uma entrada no banco de dados da turma criada
     """
-    turma = request.params['turma_nome']
+    turma = request.forms['turma_nome']
 
-    facade.CreateTurmaFacade(turma, request.get_cookie("login", secret='2524'))
+    facade.create_turma_facade(turma, request.get_cookie("login", secret='2524'))
 
     redirect('/turma')
 
@@ -55,8 +55,10 @@ def read_turma():
     :return: a entrada de dicionario que contem o id e o turma_nome
     """
     if request.get_cookie("login", secret='2524'):
-        turma = facade.ReadTurmaFacade()
-        return dict(turma = turma)
+        turmi = facade.read_turma_facade()
+        turmas = [(turma['id'], turma['nome'],turma['criador'], turma['desempenho_j1'], turma['desempenho_j2']) for turma
+                  in turmi]
+        return dict(turma=turmas)
     else:
         redirect('/')
 
@@ -65,5 +67,5 @@ def read_turma():
 
 @get('/deletar_turma')
 def deletar_turma():
-    facade.DeleteTurmaFacade(request.params['id'])
+    facade.delete_turma_facade(request.params['id'])
     redirect('/turma')

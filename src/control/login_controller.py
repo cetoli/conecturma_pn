@@ -26,6 +26,7 @@ def login():
         create_cookie(nome)
         redirect('/user_menu')
     else:
+        print("deu ruim no valida login")
         redirect('/')
 
 
@@ -37,7 +38,7 @@ def cadastro_view():
 
 @route('/cadastro', method='POST')
 def cadastro():
-    facade.CreateAlunoFacade(request.params['aluno_nome'], request.params['senha'])
+    facade.create_aluno_facade(request.params['aluno_nome'], request.params['senha'])
     redirect('/')
 
 
@@ -48,15 +49,60 @@ def sair():
 
 
 def valida_login(nome, senha):
-    retorno = facade.PesquisaAlunoFacade(nome)
-
+    retorno = facade.pesquisa_aluno_facade(nome)
     if retorno:
-        if retorno.usuario_nome == nome and retorno.usuario_senha == senha:
+        if retorno.nome == nome and retorno.senha == senha:
             return True
         else:
             return False
     else:
         return False
+
+
+# @route('/nova_senha')
+# @view('alterar_senha')
+# def sem_nome():
+#     pass
+
+
+@route('/alterar_senha')
+@view('alterar_senha')
+def view_alterar_senha():
+    return
+@route('/new_senha',method='POST')
+def controller_new_senha():
+
+    nome = request.params['usuario']
+    senha = request.params['senha']
+    senha_nova = request.params['senha_nova']
+    senha_conf = request.params['senha_conf']
+    if senha_nova != senha_conf:
+        redirect('/new_senha')
+    retorno = facade.pesquisa_aluno_facade(nome)
+    if valida_login(nome, senha):
+        facade.aluno.update_aluno(retorno.id, nome, senha_nova)
+        redirect('/user_menu')
+    else:
+        print("deu ruim tentando mudar a senha")
+        redirect('/')
+@route('/alterar_usuario_nome')
+@view('alterar_usuario_nome')
+def view_alterar_senha():
+    return
+@route('/new_nome_user',method='POST')
+def controller_new_usuario_nome():
+
+    nome = request.params['usuario']
+    senha = request.params['senha']
+    nome_novo= request.params['nome_novo']
+    retorno = facade.pesquisa_aluno_facade(nome)
+    if valida_login(nome, senha):
+        facade.aluno.update_aluno(retorno.id, nome_novo, senha)
+        create_cookie(nome_novo)
+        redirect('/')
+    else:
+        print("deu ruim tentando mudar o usuario")
+        redirect('/')
 
 
 def create_cookie(parametro):

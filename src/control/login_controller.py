@@ -5,7 +5,8 @@ facade = Facade()
 
 
 @route('/')
-@view('index')
+# @view('index')
+@view('corpo/login')
 def index():
     if request.get_cookie("login", secret='2524'):
         redirect('/user_menu')

@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Conecturma - Plataforma Educacional</title>
+  <title>Conecturma - Plataforma Educacional - Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <!-- Bulma Version 0.6.0 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="../app/css/corpo.css">
+  <link rel="stylesheet" type="text/css" href="static/corpo.css">
 </head>
 <body>
 
@@ -18,7 +18,9 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item brand-text" href="../">
-          Bulma Admin
+            <figure class="avatar">
+              <img src="https://s9.postimg.org/85iwr8l5b/CONECTURMA.png" width="200px">
+            </figure>
         </a>
         <div class="navbar-burger burger" data-target="navMenu">
           <span></span>
@@ -29,17 +31,37 @@
       <div id="navMenu" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item" href="admin.html">
-            Home
+            Painel
           </a>
           <a class="navbar-item" href="admin.html">
-            Orders
+            Quem Somos
           </a>
           <a class="navbar-item" href="admin.html">
-            Payments
+            Ajuda
           </a>
-          <a class="navbar-item" href="admin.html">
-            Exceptions
-          </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown">
+            <a class="navbar-link">
+              Conta
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Painel
+              </a>
+              <a class="navbar-item">
+                Perfil
+              </a>
+              <a class="navbar-item">
+                Configurações
+              </a>
+              <hr class="navbar-divider">
+              <div class="navbar-item">
+                Sair
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -51,56 +73,46 @@
       <div class="column is-3">
         <aside class="menu">
           <p class="menu-label">
-            General
+            Painel
           </p>
           <ul class="menu-list">
-            <li><a class="is-active">Dashboard</a></li>
-            <li><a>Customers</a></li>
+            <li><a class="is-active">Principal</a></li>
           </ul>
           <p class="menu-label">
-            Administration
+            Jogos
           </p>
           <ul class="menu-list">
-            <li><a>Team Settings</a></li>
-            <li>
-              <a>Manage Your Team</a>
-              <ul>
-                <li><a>Members</a></li>
-                <li><a>Plugins</a></li>
-                <li><a>Add a member</a></li>
-              </ul>
-            </li>
-            <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
+            <li><a>Favoritos</a></li>
+            <li><a>Descrição</a></li>
           </ul>
           <p class="menu-label">
-            Transactions
+            Loja
           </p>
           <ul class="menu-list">
-            <li><a>Payments</a></li>
-            <li><a>Transfers</a></li>
-            <li><a>Balance</a></li>
+            <li><a>Meus Itens</a></li>
+            <li><a>Vestuário</a></li>
+            <li><a>Itens</a></li>
+          </ul>
+          <p class="menu-label">
+            Conquistas
+          </p>
+          <ul class="menu-list">
+            <li><a>Medalhas</a></li>
+            <li><a>Pontuação</a></li>
+            <li><a>Jogos</a></li>
+            <li><a>Partidas</a></li>
           </ul>
         </aside>
       </div>
       <div class="column is-9">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li><a href="../">Bulma</a></li>
-            <li><a href="../">Templates</a></li>
-            <li><a href="../">Examples</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Admin</a></li>
-          </ul>
-        </nav>
         <section class="hero is-info welcome is-small">
           <div class="hero-body">
             <div class="container">
               <h1 class="title">
-                Hello, Admin.
+                Olá, amigo da Conecturma!
               </h1>
               <h2 class="subtitle">
-                I hope you are having a great day!
+                Desejamos que você esteja tendo um ótimo dia!
               </h2>
             </div>
           </div>
@@ -109,98 +121,70 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">439k</p>
-                <p class="subtitle">Users</p>
+                <p class="title">10</p>
+                <p class="subtitle">Medalhas</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">59k</p>
-                <p class="subtitle">Products</p>
+                <p class="title">300</p>
+                <p class="subtitle">Pontos</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">3.4k</p>
-                <p class="subtitle">Open Orders</p>
+                <p class="title">5</p>
+                <p class="subtitle">Jogos</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
                 <p class="title">19</p>
-                <p class="subtitle">Exceptions</p>
+                <p class="subtitle">Partidas</p>
               </article>
             </div>
           </div>
         </section>
         <div class="columns">
           <div class="column is-6">
-            <div class="card events-card">
+            <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
-                  Events
+                  Identificação
                 </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
               </header>
-              <div class="card-table">
+              <div class="card">
                 <div class="content">
-                  <table class="table is-fullwidth is-striped">
-                    <tbody>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Lorum ipsum dolem aire</td>
-                        <td><a class="button is-small is-primary" href="#">Action</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div class="field">
+                    <label class="label">Usuário</label>
+                    <div class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" placeholder="Identificador do usuário"/>
+                      <span class="icon is-small is-left">
+                        <i class="fa fa-user"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fa fa-check"></i>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Senha</label>
+                    <div class="control has-icons-left has-icons-right">
+                      <input class="input" type="password" placeholder="Text input" value="entre a senha">
+                      <span class="icon is-small is-left">
+                        <i class="fa fa-user"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fa fa-check"></i>
+                      </span>
+                    </div>
+                    <p class="help is-success"></p>
+                  </div>
                 </div>
               </div>
               <footer class="card-footer">
-                <a href="#" class="card-footer-item">View All</a>
+                <a class="button is-large is-primary is-pulled-right" href="#">Enviar</a>
               </footer>
             </div>
           </div>
@@ -208,7 +192,7 @@
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
-                  Inventory Search
+                  Busca de Escolas
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -233,7 +217,7 @@
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
-                  User Search
+                  Busca de Alunos
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">

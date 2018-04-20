@@ -79,3 +79,9 @@ nav.navbar {
   max-height: 250px;
   overflow-y: scroll;
 }
+.tab-pane div{
+		position: absolute; top: -1px; left: 0; width: 100%; 
+}
+#box-one:target, #box-two:target, #box-three:target {
+  z-index: 1;
+}

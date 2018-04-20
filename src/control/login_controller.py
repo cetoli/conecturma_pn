@@ -21,14 +21,15 @@ CADASTRO = dict(
     altertit="Entrar",
     version=__version__,
 )
-
+ADM_CLASS = dict(aluno=['Aluno'], admin='Aluno Professor, Observador, Localização'.split())
 
 @route('/user_menu')
 # @view('index')
 @view('corpo/corpo')
 def index():
-    if request.get_cookie("login", secret='2524'):
-        return
+    clazz = request.get_cookie("login", secret='2524')
+    if clazz:
+        return dict(crud_classes=ADM_CLASS[clazz])
     else:
         redirect('/')
 
@@ -53,6 +54,7 @@ def login():
     senha = request.params['senha']
 
     if valida_login(nome, senha):
+        nome = 'aluno'
         create_cookie(nome)
         redirect('/user_menu')
     else:
@@ -69,7 +71,7 @@ def cadastro_view():
 @route('/cadastro', method='POST')
 def cadastro():
     print("def cadastro():", request.params['aluno_nome'], request.params['senha'])
-    facade.create_aluno_facade(request.params['aluno_nome'], request.params['senha'])
+    facade.create_aluno_facade(request.params['aluno_nome'],'avulsa', request.params['senha'])
 
     redirect('/')
 
@@ -83,6 +85,7 @@ def sair():
 def valida_login(nome, senha):
     retorno = facade.pesquisa_aluno_facade(nome)
     if retorno:
+        print("valida_login",retorno.nome,retorno.senha )
         if retorno.nome == nome and retorno.senha == senha:
             return True
         else:

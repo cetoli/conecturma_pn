@@ -11,7 +11,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="static/corpo.css">
 </head>
+</head>
 <body>
+<!-- Nav tabs -->
+<input type="radio" id="ajuda" name="nav-tab" style="display: none;" >
+<input type="radio" id="video" name="nav-tab" style="display: none;" >
+<input type="radio" id="doc" name="nav-tab" style="display: none;" >
+% for item in crud_classes:
+<input type="radio" id="{{item.lower()}}" name="nav-tab" style="display: none;" >
+% end
 
   <!-- START NAV -->
   <nav class="navbar is-white">
@@ -31,16 +39,22 @@
       <div id="navMenu" class="navbar-menu">
         <div class="navbar-start">
 		  % for item in crud_classes:
-          <a class="navbar-item" href="admin.html">
-            {{item}}
-          </a>
+              <label for="{{item.lower()}}">
+                  <a class="navbar-item">
+
+                    {{item}}
+                  </a></label>
 		  % end
-          <a class="navbar-item" href="admin.html">
-            Quem Somos
-          </a>
-          <a class="navbar-item" href="admin.html">
-            Ajuda
-          </a>
+          <label for="quem_somos">
+              <a class="navbar-item">
+
+                Quem Somos
+              </a></label>
+          <label for="ajuda">
+              <a class="navbar-item">
+
+                Ajuda
+              </a></label>
         </div>
         <div class="navbar-end">
           <div class="navbar-item has-dropdown">
@@ -106,13 +120,13 @@
           </ul>
         </aside>
       </div>
-      <div class="column is-9 tab-pane">
-	<div id="box-one">
-        % include('corpo/form.tpl')
-	</div>
-	<div id="box-two">
-        % include('corpo/badges.tpl')
-	</div>
+      <div class="column is-9 tab-content">
+        <div id="box-one" class="tab-pane content-ajuda">
+            % include('corpo/form.tpl')
+	    </div>
+        <div id="box-two" class="tab-pane content-aluno">
+            % include('corpo/badges.tpl')
+	    </div>
       </div>
     </div>
   </div>

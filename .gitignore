@@ -111,3 +111,4 @@ venv.bak/
 .idea/workspace.xml
 /src/dump.rdb
 *.swp
+*.*~

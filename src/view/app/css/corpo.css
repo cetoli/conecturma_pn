@@ -80,8 +80,19 @@ nav.navbar {
   overflow-y: scroll;
 }
 .tab-pane div{
-		position: absolute; top: -1px; left: 0; width: 100%; 
+		position: relative; top: -1px; left: 0; width: 100%; 
 }
 #box-one:target, #box-two:target, #box-three:target {
   z-index: 1;
 }
+
+.hidden-radios, .tab-pane { display: none; }
+
+/* the magic */
+#ajuda:checked ~  .container > .columns > .tab-content > .content-ajuda,
+#aluno:checked ~  .container > .columns > .tab-content > .content-aluno,
+#quem_somos:checked ~  .container > .columns > .tab-content > .content-quem_somos,
+#observador:checked ~  .container > .columns > .tab-content > .content-observador {
+  display: block;
+}
+

@@ -91,6 +91,16 @@ nav.navbar {
 /* the magic */
 #ajuda:checked ~  .container > .columns > .tab-content > .content-ajuda,
 #aluno:checked ~  .container > .columns > .tab-content > .content-aluno,
+#menu-item0:checked ~  .container > .columns > .tab-content > .content-menu-item0,
+#menu-item1:checked ~  .container > .columns > .tab-content > .content-menu-item1,
+#menu-item2:checked ~  .container > .columns > .tab-content > .content-menu-item2,
+#menu-item3:checked ~  .container > .columns > .tab-content > .content-menu-item3,
+#menu-item4:checked ~  .container > .columns > .tab-content > .content-menu-item4,
+#menu-item5:checked ~  .container > .columns > .tab-content > .content-menu-item5,
+#menu-item6:checked ~  .container > .columns > .tab-content > .content-menu-item6,
+#menu-item7:checked ~  .container > .columns > .tab-content > .content-menu-item7,
+#menu-item8:checked ~  .container > .columns > .tab-content > .content-menu-item8,
+#menu-item9:checked ~  .container > .columns > .tab-content > .content-menu-item9,
 #quem_somos:checked ~  .container > .columns > .tab-content > .content-quem_somos,
 #observador:checked ~  .container > .columns > .tab-content > .content-observador {
   display: block;

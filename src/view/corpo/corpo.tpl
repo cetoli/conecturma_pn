@@ -17,8 +17,11 @@
 <input type="radio" id="ajuda" name="nav-tab" style="display: none;" >
 <input type="radio" id="quem_somos" name="nav-tab" style="display: none;" >
 <input type="radio" id="doc" name="nav-tab" style="display: none;" >
-% for item in crud_classes:
+% for item in range(9):
 <input type="radio" id="{{item.lower()}}" name="nav-tab" style="display: none;" >
+% end
+% for item in crud_classes:
+<input type="radio" id="{{'menu-item{}'.format(item)}}" name="nav-tab" style="display: none;" >
 % end
 
   <!-- START NAV -->
@@ -86,39 +89,16 @@
   <!-- END NAV -->
   <div class="container">
     <div class="columns">
-      <div class="column is-3">
-        <aside class="menu">
-          <p class="menu-label">
-            Painel
-          </p>
-          <ul class="menu-list">
-            <li><a class="is-active">Principal</a></li>
-          </ul>
-          <p class="menu-label">
-            Jogos
-          </p>
-          <ul class="menu-list">
-            <li><a href="#box-two">Favoritos</a></li>
-            <li><a href="#box-one">>Descrição</a></li>
-          </ul>
-          <p class="menu-label">
-            Loja
-          </p>
-          <ul class="menu-list">
-            <li><a>Meus Itens</a></li>
-            <li><a>Vestuário</a></li>
-            <li><a>Itens</a></li>
-          </ul>
-          <p class="menu-label">
-            Conquistas
-          </p>
-          <ul class="menu-list">
-            <li><a>Medalhas</a></li>
-            <li><a>Pontuação</a></li>
-            <li><a>Jogos</a></li>
-            <li><a>Partidas</a></li>
-          </ul>
-        </aside>
+      <div class="column is-3 tab-content">
+          <div class="tab-pane content-ajuda">
+                % include('corpo/aluno_menu.tpl')
+          </div>
+          <div class="tab-pane content-quem_somos">
+                % include('corpo/quem_menu.tpl')
+          </div>
+          <div  class="tab-pane content-aluno">
+                % include('corpo/aluno_menu.tpl')
+          </div>
       </div>
       <div class="column is-9 tab-content">
         <div id="box-one" class="tab-pane content-ajuda">

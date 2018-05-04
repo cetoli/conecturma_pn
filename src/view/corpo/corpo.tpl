@@ -15,7 +15,7 @@
 <body>
 <!-- Nav tabs -->
 <input type="radio" id="ajuda" name="nav-tab" style="display: none;" >
-<input type="radio" id="video" name="nav-tab" style="display: none;" >
+<input type="radio" id="quem_somos" name="nav-tab" style="display: none;" >
 <input type="radio" id="doc" name="nav-tab" style="display: none;" >
 % for item in crud_classes:
 <input type="radio" id="{{item.lower()}}" name="nav-tab" style="display: none;" >
@@ -27,7 +27,7 @@
       <div class="navbar-brand">
         <a class="navbar-item brand-text" href="../">
             <figure class="avatar">
-              <img src="https://s9.postimg.org/85iwr8l5b/CONECTURMA.png" width="200px">
+              <img src="https://i.imgur.com/UDSgtyS.jpg" width="200px">
             </figure>
         </a>
         <div class="navbar-burger burger" data-target="navMenu">
@@ -126,6 +126,9 @@
 	    </div>
         <div id="box-two" class="tab-pane content-aluno">
             % include('corpo/badges.tpl')
+	    </div>
+        <div id="box-three" class="tab-pane content-quem_somos">
+            % include('corpo/quem.tpl')
 	    </div>
       </div>
     </div>

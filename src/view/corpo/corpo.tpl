@@ -18,7 +18,7 @@
 <input type="radio" id="quem_somos" name="nav-tab" style="display: none;" >
 <input type="radio" id="doc" name="nav-tab" style="display: none;" >
 % for item in range(9):
-<input type="radio" id="{{item.lower()}}" name="nav-tab" style="display: none;" >
+<input type="radio" id="{{'vnav-{}'.format(item)}}" name="nav-tab" style="display: none;" >
 % end
 % for item in crud_classes:
 <input type="radio" id="{{'menu-item{}'.format(item)}}" name="nav-tab" style="display: none;" >

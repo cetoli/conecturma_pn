@@ -2,7 +2,7 @@
 <div class="row">
     <div align="center" class="col-md-12">
         <h1>Cadastro</h1>
-        <form action="create_escola">
+        <form action="/escola/criar_escola" method="post">
          Nome da escola:   <input type="text" name="nome"/><br>
          Telefone:          <input type="text" name="telefone"/><br>
          Cep:          <input type="text" name="cep"/><br>
@@ -41,14 +41,15 @@
          Numero:    <input type="text" name="numero"/><br>
          Rede:
             <select name = "rede">
-                %if rede is None:
-                    <option value="0">Nenhuma rede encontrada</option>
-                %else:
                 <option value="0"></option>
-                %   for r in rede:
-                    <option value="{{r['id']}}">{{r['nome']}}</option>
-                %   end
-                %end
+                %if isinstance(rede, dict):
+                    <option value="{{rede['id']}}">{{rede['nome']}}</option>
+                % else:
+                    % for e in rede:
+                        <option value="{{e['id']}}">{{e['nome']}}</option>
+                    % end
+                    %end
+                % end
             </select><br>
          <button type="submit">Enviar</button>
         </form>

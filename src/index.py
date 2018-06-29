@@ -1,5 +1,5 @@
 from bottle import default_app
-from control.login_controller import *
+from control.bulma_controller import *
 
 import bottle
 import os

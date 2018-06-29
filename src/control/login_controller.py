@@ -1,5 +1,6 @@
 from bottle import route, view, request, redirect, response
 from facade.facade import Facade
+
 __version__ = "0.0.1"
 facade = Facade()
 
@@ -22,6 +23,7 @@ CADASTRO = dict(
     version=__version__,
 )
 ADM_CLASS = dict(aluno=['Aluno'], admin='Aluno Professor, Observador, Localização'.split())
+
 
 @route('/user_menu')
 # @view('index')
@@ -71,7 +73,7 @@ def cadastro_view():
 @route('/cadastro', method='POST')
 def cadastro():
     print("def cadastro():", request.params['aluno_nome'], request.params['senha'])
-    facade.create_aluno_facade(request.params['aluno_nome'],'avulsa', request.params['senha'])
+    facade.create_aluno_facade(request.params['aluno_nome'], 'avulsa', request.params['senha'])
 
     redirect('/')
 
@@ -85,7 +87,7 @@ def sair():
 def valida_login(nome, senha):
     retorno = facade.pesquisa_aluno_facade(nome)
     if retorno:
-        print("valida_login",retorno.nome,retorno.senha )
+        print("valida_login", retorno.nome, retorno.senha)
         if retorno.nome == nome and retorno.senha == senha:
             return True
         else:
@@ -104,9 +106,10 @@ def valida_login(nome, senha):
 @view('alterar_senha')
 def view_alterar_senha():
     return
-@route('/new_senha',method='POST')
-def controller_new_senha():
 
+
+@route('/new_senha', method='POST')
+def controller_new_senha():
     nome = request.params['usuario']
     senha = request.params['senha']
     senha_nova = request.params['senha_nova']
@@ -120,16 +123,19 @@ def controller_new_senha():
     else:
         print("deu ruim tentando mudar a senha")
         redirect('/')
+
+
 @route('/alterar_usuario_nome')
 @view('alterar_usuario_nome')
 def view_alterar_senha():
     return
-@route('/new_nome_user',method='POST')
-def controller_new_usuario_nome():
 
+
+@route('/new_nome_user', method='POST')
+def controller_new_usuario_nome():
     nome = request.params['usuario']
     senha = request.params['senha']
-    nome_novo= request.params['nome_novo']
+    nome_novo = request.params['nome_novo']
     retorno = facade.pesquisa_aluno_facade(nome)
     if valida_login(nome, senha):
         facade.aluno.update_aluno(retorno.id, nome_novo, senha)

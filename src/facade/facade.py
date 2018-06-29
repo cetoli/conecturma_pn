@@ -1,13 +1,14 @@
 from .aluno_facade import AlunoFacade 
 from .observador_facade import ObservadorFacade 
-from .escola_facade import EscolaFacade 
-from .historico_facade import HistoricoFacade 
-from .loja_facade import LojaFacade 
-from .turma_facade import TurmaFacade 
-from .rede_facade import RedeFacade 
-from .medalha_facade import MedalhaFacade 
+# from .escola_facade import EscolaFacade
+# from .historico_facade import HistoricoFacade
+# from .loja_facade import LojaFacade
+# from .turma_facade import TurmaFacade
+# from .rede_facade import RedeFacade
+# from .medalha_facade import MedalhaFacade
 
-class Facade(AlunoFacade, ObservadorFacade, HistoricoFacade, EscolaFacade, LojaFacade, TurmaFacade, RedeFacade, MedalhaFacade):
+
+class Facade(AlunoFacade, ObservadorFacade):  # , HistoricoFacade, EscolaFacade, LojaFacade, TurmaFacade, RedeFacade, MedalhaFacade):
 
     def __init__(self):
         """
